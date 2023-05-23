@@ -30,21 +30,21 @@ function App() {
     if (sortHits === "author") {
       axios
         .get(
-          `http://hn.algolia.com/api/v1/search?tags=story,author_${searchInput}`
+          `https://hn.algolia.com/api/v1/search?tags=story,author_${searchInput}`
         )
         .then((res) => {
           setArticles(res.data.hits);
         });
     } else if (sortHits === "date") {
       axios
-        .get(`http://hn.algolia.com/api/v1/search_by_date?query=${searchInput}`)
+        .get(`https://hn.algolia.com/api/v1/search_by_date?query=${searchInput}`)
         .then((res) => {
           setArticles(res.data.hits);
         });
     } else {
       axios
         .get(
-          `http://hn.algolia.com/api/v1/search?query=${searchInput}&tags=story`
+          `https://hn.algolia.com/api/v1/search?query=${searchInput}&tags=story`
         )
         .then((res) => {
           setArticles(res.data.hits);
